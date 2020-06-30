@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendMetadata:DelimitedFileConnection xmi:id="_OksnYLdyEeqss_JGWbyi-A" name="test-stagiare-1-data" dataPackage="_Ommr4LdyEeqss_JGWbyi-A" Server="Localhost 127.0.0.1" FilePath="C:/Users/ndadj/Downloads/test-stagiare-1.csv" Format="WINDOWS" Encoding="UTF-8" FieldSeparatorValue="&quot;;&quot;" RowSeparatorValue="&quot;\n&quot;" UseHeader="true" HeaderValue="1" FirstLineCaption="true"/>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_Ommr4LdyEeqss_JGWbyi-A" name="default" dataManager="_OksnYLdyEeqss_JGWbyi-A">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_Ommr4bdyEeqss_JGWbyi-A" id="_d_U-0LdxEeqss_JGWbyi-A" label="test-stagiaire-1-data">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_Ommr4rdyEeqss_JGWbyi-A" label="RAISON_SOCIALE" length="20" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_Ommr47dyEeqss_JGWbyi-A" label="Nbres_Demployes___Nom_Entreprise" length="28" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_Ommr5LdyEeqss_JGWbyi-A" label="Nom_et_Prenom_du_Responsable" length="15" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_Ommr5bdyEeqss_JGWbyi-A" label="CONTACT" length="8" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_Ommr5rdyEeqss_JGWbyi-A" label="Situation_Geographique" length="19" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_Ommr57dyEeqss_JGWbyi-A" label="Votre_existant__Fixe__Mobile_Internet_CUG" length="22" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_Ommr6LdyEeqss_JGWbyi-A" label="OBSERVATION" length="16" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>
