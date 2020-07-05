@@ -12,8 +12,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio'; 
 import { MatSelectModule } from '@angular/material/select';
 
-import { HeaderComponent } from './header/header.component';
-import { DataTablesComponent } from './data-tables/data-tables.component';
+import { HeaderComponent } from './components/header/header.component';
+import { DataTablesComponent } from './components/data-tables/data-tables.component';
+
+import { ApiService } from './services/api.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,7 @@ import { DataTablesComponent } from './data-tables/data-tables.component';
     MatRadioModule,
     MatSelectModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

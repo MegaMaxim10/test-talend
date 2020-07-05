@@ -3,7 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
-import * as dataSource from 'src/app/data-tables/data/table-data'
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-data-tables',
@@ -16,6 +16,7 @@ export class DataTablesComponent implements OnInit {
 
   public data: MatTableDataSource<any>;
   public displayedColumns: string[] = [];
+  public displayedColumnsTitles: any;
   public columnsToDisplay: string[] = [];
 
   // Data sources
@@ -35,19 +36,58 @@ export class DataTablesComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor() { }
+  public stagiaire1ColumnsToDisplay : string[] = [
+    'raisonSociale',
+    'nbresDemployesNomEntreprise',
+    'nomEtPrenomDuResponsable',
+    'contact',
+    'situationGeographique',
+    'votreExistantFixeMobileInternetCug',
+    'observation'
+  ];
+
+  public stagiaire1ColumnsTitles : any = {
+    raisonSociale: 'RAISON SOCIALE',
+    nbresDemployesNomEntreprise: 'Nbres Demployes / Nom Entreprise',
+    nomEtPrenomDuResponsable: 'Nom et Prenom du Responsable',
+    contact: 'CONTACT',
+    situationGeographique: 'Situation Geographique',
+    votreExistantFixeMobileInternetCug: 'Votre existant (Fixe, Mobile Internet, CUG)',
+    observation: 'OBSERVATION'
+  };
+
+  public stagiaire2ColumnsToDisplay : string[] = [
+    'entreprise',
+    'telephone',
+    'email',
+    'regionProvince',
+    'flotte'
+  ];
+  
+  public stagiaire2ColumnsTitles : any = {
+    entreprise: 'Entreprise',
+    telephone: 'Téléphone',
+    email: 'Email',
+    regionProvince: 'Région/Province',
+    flotte: 'Flotte?'
+  };
+
+  constructor(private apiService: ApiService) { }
 
   // Initializations
   ngOnInit(): void {
     this.initializeDataSources();
     this.initializeTable();
-    this.initializePaginationAndSorting();
   }
 
   public initializeTable() {
-    this.data = new MatTableDataSource(dataSource.TEST_STAGIAIRE_1_ARRAY);
-    this.columnsToDisplay = dataSource.COLUMNS_TO_DISPLAY_FOR_TEST_STAGIAIRE_1_TABLE;
-    this.displayedColumns = this.columnsToDisplay.slice();
+    this.apiService.getTestStagiaire1Data().then((dat) => {
+      this.displayedColumnsTitles = this.stagiaire1ColumnsTitles;
+      this.data = new MatTableDataSource(dat);
+      this.columnsToDisplay = this.stagiaire1ColumnsToDisplay;
+      this.displayedColumns = this.columnsToDisplay.slice();
+      this.initializePaginationAndSorting();
+    });
   }
 
   public initializePaginationAndSorting() {
@@ -64,20 +104,26 @@ export class DataTablesComponent implements OnInit {
 
   // Set Test Stagiaire 2 data in the table
   public setTestStagiaire2DataSource() {
-    this.data = new MatTableDataSource(dataSource.TEST_STAGIAIRE_2_ARRAY);
-    this.columnsToDisplay = dataSource.COLUMNS_TO_DISPLAY_FOR_TEST_STAGIAIRE_2_TABLE;
-    this.displayedColumns = this.columnsToDisplay.slice();
-    this.initializePaginationAndSorting();
-    this.tableCaption = 'Test Stagiaire 2'
+    this.apiService.getTestStagiaire2Data().then((dat) => {
+      this.displayedColumnsTitles = this.stagiaire2ColumnsTitles;
+      this.data = new MatTableDataSource(dat);
+      this.columnsToDisplay = this.stagiaire2ColumnsToDisplay;
+      this.displayedColumns = this.columnsToDisplay.slice();
+      this.initializePaginationAndSorting();
+      this.tableCaption = 'Test Stagiaire 2'
+    });
   }
 
   // Set Test Stagiaire 1 data in the table
   public setTestStagiaire1DataSource() {
-    this.data = new MatTableDataSource(dataSource.TEST_STAGIAIRE_1_ARRAY);
-    this.columnsToDisplay = dataSource.COLUMNS_TO_DISPLAY_FOR_TEST_STAGIAIRE_1_TABLE;
-    this.displayedColumns = this.columnsToDisplay.slice();
-    this.initializePaginationAndSorting();
-    this.tableCaption = 'Test Stagiaire 1';
+    this.apiService.getTestStagiaire1Data().then((dat) => {
+      this.displayedColumnsTitles = this.stagiaire1ColumnsTitles;
+      this.data = new MatTableDataSource(dat);
+      this.columnsToDisplay = this.stagiaire1ColumnsToDisplay;
+      this.displayedColumns = this.columnsToDisplay.slice();
+      this.initializePaginationAndSorting();
+      this.tableCaption = 'Test Stagiaire 1';
+    });
   }
 
   public chooseDatasource() {

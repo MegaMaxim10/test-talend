@@ -28,7 +28,7 @@
                         <h4>Data table for {{ tableCaption }}</h4>
                     </caption>
                     <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ column }} </th>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ displayedColumnsTitles[column] }} </th>
                         <td mat-cell *matCellDef="let element">{{ element[column] }}</td>
                     </ng-container>
 
